@@ -426,9 +426,8 @@ local function LoadDoubleOrNothingSlots()
 	end
 end
 
-hook.Add("InitPostEntity", "SpawnDoubleOrNothingSlots", function()
-	LoadDoubleOrNothingSlots()
-end)
+hook.Add("InitPostEntity", "SpawnDoubleOrNothingSlots", LoadDoubleOrNothingSlots)
+hook.Add("PostCleanupMap", "DoubleOrNothing_onCleanup", LoadDoubleOrNothingSlots)
 
 --Handle saving and loading of slots
 hook.Add("PlayerSay", "HandleBDONCommands" , function(ply, text)
